@@ -1,5 +1,5 @@
 import React from 'react';
-import {Header, Jumbotron, Button} from 'reactstrap'
+import {Jumbotron, Button} from 'reactstrap'
 import {Link, Route} from 'react-router-dom'
 import './App.css';
 import Register from './components/Register'
@@ -8,9 +8,9 @@ import Login from './components/Login'
 function App() {
   return (
   <>
-      <Header>
+      <header>
           <Jumbotron>Lambda Help Desk</Jumbotron>
-      </Header>
+      </header>
       <p>Already Registered?</p>
     
       <Link to={'/login'}>
