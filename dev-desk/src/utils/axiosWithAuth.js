@@ -3,6 +3,7 @@ import axios from 'axios';
 const axiosWithAuth = () => {
     return (
         <>
+            <h1>Hella</h1>
         </>
     )
 }
