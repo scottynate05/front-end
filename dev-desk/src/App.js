@@ -1,6 +1,6 @@
 import React from 'react';
 import {Jumbotron, Button} from 'reactstrap'
-import {Link, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import './App.css';
 import Register from './components/Register'
 import Login from './components/Login'
@@ -8,9 +8,10 @@ import Login from './components/Login'
 function App() {
   return (
   <>
-      <header>
+    <Router>
+      <div>
           <Jumbotron>Lambda Help Desk</Jumbotron>
-      </header>
+      </div>
       <p>Already Registered?</p>
     
       <Link to={'/login'}>
@@ -34,6 +35,7 @@ function App() {
       <Route path='register'>
         <Register/>
       </Route>
+    </Router>      
   </>
   )
 }
