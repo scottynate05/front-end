@@ -1,14 +1,14 @@
 import React, {useState} from 'react'
-import {Form, Label} from 'reactstrap'
+import {Form, Label, Button} from 'reactstrap'
 
 const Register = () => {
 
     const [formData, setFormData] = useState({
-        username='',
-        password='',
-        repassword='',
-        helperCheck=false,    
-        studentCheck=false
+        username:'',
+        password:'',
+        repassword:'',
+        helperCheck:false,    
+        studentCheck:false
     })
 
     const eventChange = (event) => {

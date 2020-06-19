@@ -43,14 +43,13 @@ function App() {
 
       </Route>
 
-      <Route path='login'>
+      <Route path='/login'>
         <Login/>
       </Route>
 
-      <Route path='register'>
+      <Route path='/register'>
         <Register/>
-      </Route>
-    </Router>      
+      </Route>      
   </>
   )
 }
