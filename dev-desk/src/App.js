@@ -1,6 +1,8 @@
 import React from 'react';
+
 import {Jumbotron, Button, Navbar, Col, Row} from 'reactstrap'
 import {Link, Route} from 'react-router-dom'
+
 import './App.css';
 import Register from './components/Register'
 import Login from './components/Login'
@@ -8,6 +10,7 @@ import Login from './components/Login'
 function App() {
   return (
   <>
+
       <Navbar>
           <Jumbotron>Lambda Help Desk</Jumbotron>  
           <Link to={"/"}>
@@ -47,6 +50,7 @@ function App() {
       <Route path='register'>
         <Register/>
       </Route>
+    </Router>      
   </>
   )
 }
