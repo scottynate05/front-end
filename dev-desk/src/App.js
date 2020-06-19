@@ -1,6 +1,8 @@
 import React from 'react';
-import {Jumbotron, Button} from 'reactstrap'
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
+
+import {Jumbotron, Button, Navbar, Col, Row} from 'reactstrap'
+import {Link, Route} from 'react-router-dom'
+
 import './App.css';
 import Register from './components/Register'
 import Login from './components/Login'
@@ -8,25 +10,38 @@ import Login from './components/Login'
 function App() {
   return (
   <>
-    <Router>
-      <div>
-          <Jumbotron>Lambda Help Desk</Jumbotron>
-      </div>
-      <p>Already Registered?</p>
-    
-      <Link to={'/login'}>
-          <Button>
-            Log-in
-          </Button>
-      </Link>
 
-      <p>New to Help Desk?</p>
+      <Navbar>
+          <Jumbotron>Lambda Help Desk</Jumbotron>  
+          <Link to={"/"}>
+            <Button>
+              Home
+            </Button>
+          </Link>
+      </Navbar>
       
-      <Link to={'/register'}>
-          <Button>
-            Register
-          </Button>
-      </Link>
+      <Route exact path='/'>
+        <Row>
+          <Col>
+            <p>Already Registered?</p>
+            <Link to={'/login'}>
+                <Button>
+                  Log-in
+                </Button>
+            </Link>
+          </Col>
+          <Col>
+            <p>New to Help Desk?</p>
+            <Link to={'/register'}>
+                <Button>
+                  Register
+                </Button>
+            </Link>            
+          </Col>
+        
+        </Row>
+
+      </Route>
 
       <Route path='login'>
         <Login/>
