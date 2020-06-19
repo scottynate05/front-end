@@ -1,20 +1,53 @@
 import React, {useState} from 'react'
-import {Form, Label} from 'reactstrap'
+import axiosWithAuth from '../utils/axiosWithAuth'
+import {Form, Label, Button} from 'reactstrap'
 
-const Login = () => {
+const Login = props => {
+    const [user, setUser] = useState({
+        username: '',
+        password: ''
+    })
+
+    const handleChanges = e => {
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const login = e => {
+        e.preventDefault();
+        axiosWithAuth()
+            .post('/user/login', user)
+            .then(res => {
+                localStorage.setItem('token', res.data.payload)
+                props.history.push('/user')
+            })
+            .catch(err => console.log('err: ', err.message, err.response))
+    }
+
     return(
         <>
             <Form>
-                <Label>
+                <Label onSubmit={(user => login(user))}>
                     Username
-                    <input name ='username' >
-                    </input>                    
+                    <input
+                        type='username'
+                        name='username'
+                        value={user.username}
+                        onChange={handleChanges}
+                    />
                 </Label>                
                 <Label>
                     Password
-                    <input name ='password' >
-                    </input>                    
+                    <input
+                        type='password'
+                        name='password'
+                        value={user.password}
+                        onChange={handleChanges}
+                    />                   
                 </Label>
+                <Button>Login</Button>
             </Form>
         </>
     )
