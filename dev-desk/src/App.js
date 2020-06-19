@@ -1,5 +1,5 @@
 import React from 'react';
-import {Jumbotron, Button, Navbar} from 'reactstrap'
+import {Jumbotron, Button, Navbar, Col, Row} from 'reactstrap'
 import {Link, Route} from 'react-router-dom'
 import './App.css';
 import Register from './components/Register'
@@ -18,22 +18,28 @@ function App() {
       </Navbar>
       
       <Route exact path='/'>
-        <p>Already Registered?</p>
-      
-        <Link to={'/login'}>
-            <Button>
-              Log-in
-            </Button>
-        </Link>
-
-        <p>New to Help Desk?</p>
+        <Row>
+          <Col>
+            <p>Already Registered?</p>
+            <Link to={'/login'}>
+                <Button>
+                  Log-in
+                </Button>
+            </Link>
+          </Col>
+          <Col>
+            <p>New to Help Desk?</p>
+            <Link to={'/register'}>
+                <Button>
+                  Register
+                </Button>
+            </Link>            
+          </Col>
         
-        <Link to={'/register'}>
-            <Button>
-              Register
-            </Button>
-        </Link>
+        </Row>
+
       </Route>
+
       <Route path='login'>
         <Login/>
       </Route>
