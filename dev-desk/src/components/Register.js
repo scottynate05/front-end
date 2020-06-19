@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
+
 import {Form, Label, Col, Row} from 'reactstrap'
 import * as yup from 'yup'
+
 
 const Register = () => {
 
@@ -17,11 +19,11 @@ const Register = () => {
     })
 
     const [formData, setFormData] = useState({
-        username='',
-        password='',
-        repassword='',
-        helperCheck=false,    
-        studentCheck=false
+        username:'',
+        password:'',
+        repassword:'',
+        helperCheck:false,    
+        studentCheck:false
     })
 
     const eventChange = (event) => {
