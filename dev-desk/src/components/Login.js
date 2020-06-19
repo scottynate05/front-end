@@ -1,11 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react'
+import {Form, Label} from 'reactstrap'
 
 const Login = () => {
-    return (
+    return(
         <>
-            <h1>Hella</h1>
+            <Form>
+                <Label>
+                    Username
+                    <input name ='username' >
+                    </input>                    
+                </Label>                
+                <Label>
+                    Password
+                    <input name ='password' >
+                    </input>                    
+                </Label>
+            </Form>
         </>
-    )        
+    )
 }
 
-export default Login;
+export default Login
