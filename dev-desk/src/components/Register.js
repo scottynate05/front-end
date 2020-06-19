@@ -17,7 +17,7 @@ const Register = () => {
                 </Label>
                 <Label>
                     Re-enter Password
-                    <input name ='password' >
+                    <input name ='repassword' >
                     </input>                    
                 </Label>
             </Form>
