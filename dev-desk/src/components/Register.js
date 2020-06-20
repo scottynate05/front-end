@@ -41,11 +41,11 @@ const Register = () => {
     })
 
     const [errors,setErrors] = useState ({
-        username='',
-        password='',
-        repassword='',
-        helperCheck='',    
-        studentCheck=''        
+        username:'',
+        password:'',
+        repassword:'',
+        helperCheck:'',    
+        studentCheck:''        
     })
 
     const eventChange = (event) => {
