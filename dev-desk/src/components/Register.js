@@ -40,13 +40,13 @@ const Register = () => {
         studentCheck:false
     })
 
-    const [errors,setErrors] = useState (
+    const [errors,setErrors] = useState ({
         username='',
         password='',
         repassword='',
         helperCheck='',    
         studentCheck=''        
-    )
+    })
 
     const eventChange = (event) => {
         event.persist()
