@@ -6,12 +6,26 @@ const Register = () => {
 
     const validate = (event) => {
         yup.reach(formschema,event.target.name)
+        .validate(event.target.type === 'checkbox'? event.target.checked: event.target.value)
+        .then( valid => {
+            setErrors({
+                ...errors,
+                [event.target.name]:''
+            })
+        })
+        .catch( err => {
+            console.log('error:', err.errors)
+            setErrors({ ...errors,
+            [event.target.name]:err.errors[0]})
+        })
     }
 
     const formschema = yup.object().shape({
         username:yup.string().required('Username is required'),
-        password:yup.string().required('Password is required'),
-        repassword:yup.string().required('Must reenter password'),
+        password:yup.string().required('Password is required').matches(
+            /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+            "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"),
+        repassword:yup.string().required('Must reenter password').oneOf([yup.ref('password'), null], 'Passwords must match'),
         helperCheck: yup.boolean(),
         studentCheck: yup.boolean()
     })
@@ -24,8 +38,17 @@ const Register = () => {
         studentCheck=false
     })
 
+    const [errors,setErrors] = useState (
+        username='',
+        password='',
+        repassword='',
+        helperCheck='',    
+        studentCheck=''        
+    )
+
     const eventChange = (event) => {
         event.persist()
+        validate(event)
         setFormData({ ...formData,
             [event.target.name]: event.target.type === 'checkbox'? event.target.checked: event.target.value
         })
@@ -62,14 +85,14 @@ const Register = () => {
                     <Col>
                         <Label>
                             Are you a Helper?
-                            <input name ='helperCheck' type='radio' value={formData.helperCheck} onChange={eventChange}>
+                            <input name ='helperCheck' type='checkbox' value={formData.helperCheck} onChange={eventChange}>
                             </input>                    
                         </Label>                    
                     </Col>
                     <Col>
                     <Label>
                         Are you a Student?
-                        <input name ='studentCheck' type='radio' value={formData.studentCheck} onChange={eventChange} >
+                        <input name ='studentCheck' type='checkbox' value={formData.studentCheck} onChange={eventChange} >
                         </input>                    
                     </Label>                    
                     </Col>
