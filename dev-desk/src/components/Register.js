@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {useState, useEffect} from 'react'
 
 import {Form, Label, Col, Row, Button} from 'reactstrap'
@@ -111,8 +112,40 @@ const Register = () => {
                     </Row>
                 </Col>
             </Form>
+=======
+import React from 'react'
+import {Link,Route} from 'react-router-dom'
+import {Button} from 'reactstrap'
+import StaffTicket from './StaffTicket'
+import TicketList from './TicketList'
+
+const StaffDashboard = () => {
+    return (
+        <>
+        <h2>Welcome to your Staff Dashboard</h2>
+        <Link to ='/staffticket'>
+            <Button>Open Staff Tickets</Button>
+        </Link>
+
+        <Link to ='/ticketlist'>
+            <Button>Open Staff Tickets</Button>
+        </Link>
+
+            <Route to ='/staffticket'>
+                <StaffTicket/>
+            </Route>
+            
+            <Route to ='/ticketlist'>
+                <TicketList/>
+            </Route>
+            
+>>>>>>> bc7db185ec9f269878e60d3a5f32ef90738103c8
         </>
     )
 }
 
+<<<<<<< HEAD
 export default Register
+=======
+export default StaffDashboard
+>>>>>>> bc7db185ec9f269878e60d3a5f32ef90738103c8
