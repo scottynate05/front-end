@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+
 import {Form, Label, Col, Row, Button} from 'reactstrap'
 import * as yup from 'yup'
 
@@ -45,7 +46,7 @@ const Register = () => {
         helperCheck:false,    
         studentCheck:false
     })
-
+    console.log(form)
     const [errors,setErrors] = useState ({
         username:'',
         password:'',
