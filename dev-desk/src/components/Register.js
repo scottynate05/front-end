@@ -53,10 +53,9 @@ const Register = () => {
         helperCheck:'',    
         studentCheck:''        
     })
-
+    console.log(errors)
     const eventChange = (event) => {
         event.persist()
-        console.log(event)
         validate(event)
         setFormData({ ...formData,
             [event.target.name]: event.target.type === 'checkbox'? event.target.checked: event.target.value
