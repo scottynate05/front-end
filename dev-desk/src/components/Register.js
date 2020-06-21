@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-import React, {useState} from 'react'
-=======
 import React, {useState, useEffect} from 'react'
->>>>>>> 817236696a5c2d8e3eea6391743bdf2327897ff7
-
 import {Form, Label, Col, Row, Button} from 'reactstrap'
 import * as yup from 'yup'
 
@@ -119,8 +114,4 @@ const Register = () => {
     )
 }
 
-<<<<<<< HEAD
 export default Register
-=======
-export default Register
->>>>>>> 817236696a5c2d8e3eea6391743bdf2327897ff7
