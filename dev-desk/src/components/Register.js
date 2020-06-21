@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, {useState} from 'react'
+=======
+import React, {useState, useEffect} from 'react'
+>>>>>>> 817236696a5c2d8e3eea6391743bdf2327897ff7
 
 import {Form, Label, Col, Row, Button} from 'reactstrap'
 import * as yup from 'yup'
@@ -22,6 +26,12 @@ const Register = () => {
         })
     }
 
+    useEffect(()=> {
+        formschema.isValid(formData).then(valid=>{
+            setButtonDisabled(!valid);
+        })
+    })
+
     const formschema = yup.object().shape({
         username:yup.string().required('Username is required'),
         password:yup.string().required('Password is required').matches(
@@ -30,6 +40,7 @@ const Register = () => {
         repassword:yup.string().required('Must reenter password').oneOf([yup.ref('password'), null], 'Passwords must match'),
         helperCheck: yup.boolean(),
         studentCheck: yup.boolean()
+
     })
 
     const [formData, setFormData] = useState({
@@ -63,49 +74,53 @@ const Register = () => {
     return(
         <>
             <Form>
-                <Row>
-                    <Col>
+                <Col>
+                    <Row>
                         <Label>
                             Username
                             <input name ='username' type='text' data-cy='username' value={formData.username} onChange={eventChange}>
                             </input>                    
                         </Label>                    
-                    </Col>
-                    <Col>
+                    </Row>
+                    <Row>
                         <Label>
                             Password
                             <input name ='password' type='text' data-cy='password' value={formData.password} onChange={eventChange}>
                             </input>                    
                         </Label>                    
-                    </Col>
-                    <Col>
+                    </Row>
+                    <Row>
                         <Label>
                             Re-enter Password
                             <input name ='repassword' type='text' data-cy='repassword'value={formData.repassword} onChange={eventChange} >
                             </input>                    
                         </Label>                    
-                    </Col>
-                    <Col>
+                    </Row>
+                    <Row>
                         <Label>
                             Are you a Helper?
                             <input name ='helperCheck' type='checkbox' data-cy='helpercheck' value={formData.helperCheck} onChange={eventChange}>
                             </input>                    
                         </Label>                    
-                    </Col>
-                    <Col>
+                    </Row>
+                    <Row>
                     <Label>
                         Are you a Student?
                         <input name ='studentCheck' type='checkbox' data-cy='studentcheck' value={formData.studentCheck} onChange={eventChange} >
                         </input>                    
                     </Label>                    
-                    </Col>
-                    <Col>
+                    </Row>
+                    <Row>
                         <Button disabled ={buttonDisabled}>Register</Button>                    
-                    </Col>
-                </Row>
+                    </Row>
+                </Col>
             </Form>
         </>
     )
 }
 
+<<<<<<< HEAD
 export default Register
+=======
+export default Register
+>>>>>>> 817236696a5c2d8e3eea6391743bdf2327897ff7

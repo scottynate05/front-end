@@ -6,6 +6,7 @@ import {Link, Route} from 'react-router-dom'
 import './App.css';
 import Register from './components/Register'
 import Login from './components/Login'
+import PrivateRoute from './components/PrivateRoute'
 
 function App() {
   return (
