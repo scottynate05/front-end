@@ -46,7 +46,7 @@ const Register = () => {
         helperCheck:false,    
         studentCheck:false
     })
-    console.log(form)
+    console.log(formData)
     const [errors,setErrors] = useState ({
         username:'',
         password:'',
