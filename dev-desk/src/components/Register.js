@@ -32,7 +32,7 @@ const Register = () => {
         password:yup.string().required('Password is required').matches(
             /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
             "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"),
-        repassword:yup.string().required('Must reenter password').oneOf([yup.ref('password'), null], 'Passwords must match'),
+        repassword:yup.string().oneOf([yup.ref('password'), null], 'Passwords must match'),
         helperCheck: yup.boolean(),
         studentCheck: yup.boolean()
 
