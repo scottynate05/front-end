@@ -14,16 +14,18 @@ function App() {
 
       <Navbar>
           <Jumbotron fluid>
-            <Row style={{display:'flex'}}>
-              <h1 className="display-3">Lambda Help Desk</h1>
-              <div style={{flexDirection:'flex-end'}}>
-                <Link to={"/"}>
-                  <Button>
-                    Home
-                  </Button>
-                </Link>
-              </div>
-          </Row>
+            <Container fluid>
+              <Row style={{display:'flex'}}>
+                <h1 className="display-3">Lambda Help Desk</h1>
+                  <div style={{flexDirection:'flex-end'}}>
+                  <Link to={"/"}>
+                    <Button>
+                      Home
+                    </Button>
+                  </Link>
+                </div>
+            </Row>
+          </Container>
           </Jumbotron>  
 
       </Navbar>
