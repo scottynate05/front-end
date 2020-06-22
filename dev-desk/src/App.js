@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Jumbotron, Button, Navbar, Col, Row} from 'reactstrap'
+import {Jumbotron, Button, Navbar, Col, Row, Container} from 'reactstrap'
 import {Link, Route} from 'react-router-dom'
 
 import './App.css';
@@ -13,12 +13,21 @@ function App() {
   <>
 
       <Navbar>
-          <Jumbotron>Lambda Help Desk</Jumbotron>  
-          <Link to={"/"}>
-            <Button>
-              Home
-            </Button>
-          </Link>
+          <Jumbotron fluid>
+            <Container fluid>
+              <Row style={{display:'flex'}}>
+                <h1 className="display-3">Lambda Help Desk</h1>
+                  <div style={{flexDirection:'flex-end'}}>
+                  <Link to={"/"}>
+                    <Button>
+                      Home
+                    </Button>
+                  </Link>
+                </div>
+            </Row>
+          </Container>
+          </Jumbotron>  
+
       </Navbar>
       
       <Route exact path='/'>
