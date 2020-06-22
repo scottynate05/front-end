@@ -15,12 +15,13 @@ function App() {
       <Navbar>
           <Jumbotron>
             <h1>Lambda Help Desk</h1>
-          </Jumbotron>  
           <Link to={"/"}>
             <Button>
               Home
             </Button>
           </Link>
+          </Jumbotron>  
+
       </Navbar>
       
       <Route exact path='/'>
