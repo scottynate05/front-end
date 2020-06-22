@@ -17,7 +17,7 @@ function App() {
             <Container fluid>
               <Row style={{display:'flex'}}>
                 <h1 className="display-3">Lambda Help Desk</h1>
-                  <Navbar style={{flexDirection:'flex-end'}}>
+                  <Navbar style={{JustifyContent:'flex-end'}}>
                     <Link to={"/"}>
                       <Button>
                         Home
@@ -31,8 +31,8 @@ function App() {
       
       
       <Route exact path='/'>
-        <Row style={{margin:'auto'}}>
-          <Col>
+        <Row style={{display:'flex'}}>
+          <Col style={{justifyContent:'center'}}>
             <p>Already Registered?</p>
             <Link to={'/login'}>
                 <Button>
@@ -40,7 +40,7 @@ function App() {
                 </Button>
             </Link>
           </Col>
-          <Col>
+          <Col style={{justifyContent:'center'}}>
             <p>New to Help Desk?</p>
             <Link to={'/register'}>
                 <Button>
