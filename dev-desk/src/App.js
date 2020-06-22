@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Jumbotron, Button, Navbar, Col, Row} from 'reactstrap'
+import {Jumbotron, Button, Navbar, Col, Row, Container} from 'reactstrap'
 import {Link, Route, Switch} from 'react-router-dom'
 
 import './App.css';
@@ -15,18 +15,39 @@ import TicketList from './components/TicketList';
 import AddTicket from './components/AddTicket';
 import EditTicket from './components/EditTicket';
 
+// localStorage.clear(); >>> to clear token
+
 function App() {
   return (
     <>
-
-        <Navbar>
-            <Jumbotron>Lambda Help Desk</Jumbotron>  
-            <Link to={"/studentdashboard"}>
-              <Button>
-                Home
-              </Button>
+      <Navbar>
+          <Jumbotron fluid>
+            <Container fluid>
+              <Row style={{display:'flex'}}>
+                <h1 className="display-3">Lambda Help Desk</h1>
+                  <div style={{flexDirection:'flex-end'}}>
+                  <Link to={"/studentdashboard"}>
+                    <Button>
+                      Home
+                    </Button>
+                  </Link>
+                </div>
+            </Row>
+          </Container>
+        </Jumbotron>  
+      </Navbar>
+      
+      {/* <Route exact path='/'>
+        <Row>
+          <Col>
+            <p>Already Registered?</p>
+            <Link to={'/login'}>
+                <Button>
+                  Log-in
+                </Button>
             </Link>
-        </Navbar>
+          </Col>
+        </Row> */}
         
         <Route exact path='/'>
           <Row>

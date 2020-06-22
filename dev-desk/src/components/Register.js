@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 import {Form, Label, Col, Row, Button} from 'reactstrap'
 import * as yup from 'yup'
+import axios from 'axios'
 
 
 const Register = () => {
@@ -66,9 +67,15 @@ const Register = () => {
 
     const [buttonDisabled, setButtonDisabled] = useState(true)
 
+    const submitFunc = (event) => {
+        event.preventDefault();
+        setFormData({username:'', password:'', repassword:'', helperCheck:false, studentCheck:false})
+            axios.post()
+    }
+
     return(
         <>
-            <Form>
+            <Form onSubmit={submitFunc}>
                 <Col>
                     <Row>
                         <Label>
