@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import axiosWithAuth from '../utils/axiosWithAuth'
-import {Form, Label, Button} from 'reactstrap'
+import {Form, Label, Button, Card, Col, Row} from 'reactstrap'
 
 const Login = props => {
     const [user, setUser] = useState({
@@ -28,26 +28,34 @@ const Login = props => {
 
     return(
         <>
-            <Form>
-                <Label onSubmit={(user => login(user))}>
-                    Username
-                    <input
-                        type='username'
-                        name='username'
-                        value={user.username}
-                        onChange={handleChanges}
-                    />
-                </Label>                
-                <Label>
-                    Password
-                    <input
-                        type='password'
-                        name='password'
-                        value={user.password}
-                        onChange={handleChanges}
-                    />                   
-                </Label>
-                <Button>Login</Button>
+            <Form style={{padding:'5%'}}>
+                <Col>
+                <Row>
+                    <Label onSubmit={(user => login(user))}>
+                        Username
+                        <input
+                            type='username'
+                            name='username'
+                            value={user.username}
+                            onChange={handleChanges}
+                        />
+                    </Label>  
+                </Row>
+                <Row>
+                    <Label>
+                        Password
+                        <input
+                            type='password'
+                            name='password'
+                            value={user.password}
+                            onChange={handleChanges}
+                        />                   
+                    </Label>
+                </Row>
+                    <Row>
+                        <Button>Login</Button>
+                    </Row>
+                </Col>
             </Form>
         </>
     )
