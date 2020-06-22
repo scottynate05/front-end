@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 import {Form, Label, Col, Row, Button} from 'reactstrap'
 import * as yup from 'yup'
+import axios from 'axios'
 
 
 const Register = () => {
@@ -66,9 +67,15 @@ const Register = () => {
 
     const [buttonDisabled, setButtonDisabled] = useState(true)
 
+    const submitFunc = (event) => {
+        event.preventDefault();
+        setFormData({username:'', password:'', repassword:'', helperCheck:false, studentCheck:false})
+            axios.post()
+    }
+
     return(
         <>
-            <Form>
+            <Form onSubmit={submitFunc}>
                 <Col>
                     <Row>
                         <Label>
@@ -80,14 +87,14 @@ const Register = () => {
                     <Row>
                         <Label>
                             Password
-                            <input name ='password' type='text' data-cy='password' value={formData.password} onChange={eventChange}>
+                            <input name ='password' type='password' data-cy='password' value={formData.password} onChange={eventChange}>
                             </input>                    
                         </Label>                    
                     </Row>
                     <Row>
                         <Label>
                             Re-enter Password
-                            <input name ='repassword' type='text' data-cy='repassword'value={formData.repassword} onChange={eventChange} >
+                            <input name ='repassword' type='password' data-cy='repassword'value={formData.repassword} onChange={eventChange} >
                             </input>                    
                         </Label>                    
                     </Row>
@@ -98,13 +105,13 @@ const Register = () => {
                             </input>                    
                         </Label>                    
                     </Row>
-                    <Row>
+                    {/* <Row>
                     <Label>
                         Are you a Student?
                         <input name ='studentCheck' type='checkbox' data-cy='studentcheck' value={formData.studentCheck} onChange={eventChange} >
                         </input>                    
                     </Label>                    
-                    </Row>
+                    </Row> */}
                     <Row>
                         <Button disabled ={buttonDisabled}>Register</Button>                    
                     </Row>

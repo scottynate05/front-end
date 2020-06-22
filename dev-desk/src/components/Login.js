@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
-import axiosWithAuth from '../utils/axiosWithAuth'
+import axios from 'axios'
 import {Form, Label, Button} from 'reactstrap'
+import history from '../utils/history'
+// import { Link } from 'react-router-dom'
 
 const Login = props => {
     const [user, setUser] = useState({
@@ -17,19 +19,21 @@ const Login = props => {
 
     const login = e => {
         e.preventDefault();
-        axiosWithAuth()
-            .post('/user/login', user)
+        axios
+            .post('https://devdesk-queue-2.herokuapp.com/api/user/login', user)
             .then(res => {
-                localStorage.setItem('token', res.data.payload)
-                props.history.push('/user')
+                localStorage.setItem('token', res.data.token)
+                history.push('/studentdashboard')
+                window.location.reload(0)
+                console.log(res)
             })
             .catch(err => console.log('err: ', err.message, err.response))
     }
 
     return(
         <>
-            <Form>
-                <Label onSubmit={(user => login(user))}>
+            <Form onSubmit={(user => login(user))}>
+                <Label>
                     Username
                     <input
                         type='username'
@@ -47,7 +51,7 @@ const Login = props => {
                         onChange={handleChanges}
                     />                   
                 </Label>
-                <Button>Login</Button>
+                <button type='submit'>Login</button>
             </Form>
         </>
     )
