@@ -12,26 +12,26 @@ function App() {
   return (
   <>
 
-      <Navbar>
+      
           <Jumbotron fluid>
             <Container fluid>
               <Row style={{display:'flex'}}>
                 <h1 className="display-3">Lambda Help Desk</h1>
-                  <div style={{flexDirection:'flex-end'}}>
-                  <Link to={"/"}>
-                    <Button>
-                      Home
-                    </Button>
-                  </Link>
-                </div>
-            </Row>
-          </Container>
+                  <Navbar style={{flexDirection:'flex-end'}}>
+                    <Link to={"/"}>
+                      <Button>
+                        Home
+                      </Button>
+                    </Link>
+                  </Navbar>
+              </Row>
+            </Container>
           </Jumbotron>  
 
-      </Navbar>
+      
       
       <Route exact path='/'>
-        <Row>
+        <Row style={{margin:'auto'}}>
           <Col>
             <p>Already Registered?</p>
             <Link to={'/login'}>
