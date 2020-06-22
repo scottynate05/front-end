@@ -14,25 +14,21 @@ function App() {
 
       
           <Jumbotron fluid>
-            <Container fluid>
-              <Row style={{display:'flex'}}>
-                <h1 className="display-3">Lambda Help Desk</h1>
-                  <Navbar style={{JustifyContent:'flex-end'}}>
+            <Container fluid style={{display:'flex',justifyContent:'space-between',paddingLeft:'5%', paddingRight:'5%'}}>
+                <h1 className="display-3" style={{display:'inline'}}>Lambda Help Desk</h1>
                     <Link to={"/"}>
                       <Button>
                         Home
                       </Button>
                     </Link>
-                  </Navbar>
-              </Row>
             </Container>
           </Jumbotron>  
 
       
       
       <Route exact path='/'>
-        <Row style={{display:'flex'}}>
-          <Col style={{justifyContent:'center'}}>
+        <Row>
+          <Col style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
             <p>Already Registered?</p>
             <Link to={'/login'}>
                 <Button>
@@ -40,7 +36,7 @@ function App() {
                 </Button>
             </Link>
           </Col>
-          <Col style={{justifyContent:'center'}}>
+          <Col style={{display:'flex',flexDirection:'column', alignItems:'center'}}>
             <p>New to Help Desk?</p>
             <Link to={'/register'}>
                 <Button>
