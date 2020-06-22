@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import axios from 'axios'
-import {Form, Label, Button} from 'reactstrap'
 import history from '../utils/history'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import axiosWithAuth from '../utils/axiosWithAuth'
+import {Form, Label, Button, Card, Col, Row} from 'reactstrap'
 
 const Login = props => {
     const [user, setUser] = useState({
@@ -32,26 +33,34 @@ const Login = props => {
 
     return(
         <>
-            <Form onSubmit={(user => login(user))}>
-                <Label>
-                    Username
-                    <input
-                        type='username'
-                        name='username'
-                        value={user.username}
-                        onChange={handleChanges}
-                    />
-                </Label>                
-                <Label>
-                    Password
-                    <input
-                        type='password'
-                        name='password'
-                        value={user.password}
-                        onChange={handleChanges}
-                    />                   
-                </Label>
-                <button type='submit'>Login</button>
+            <Form onSubmit={(user => login(user))} style={{padding:'5%'}}>
+                <Col>
+                <Row>
+                    <Label >
+                        Username
+                        <input
+                            type='username'
+                            name='username'
+                            value={user.username}
+                            onChange={handleChanges}
+                        />
+                    </Label>  
+                </Row>
+                <Row>
+                    <Label>
+                        Password
+                        <input
+                            type='password'
+                            name='password'
+                            value={user.password}
+                            onChange={handleChanges}
+                        />                   
+                    </Label>
+                </Row>
+                    <Row>
+                        <Button>Login</Button>
+                    </Row>
+                </Col>
             </Form>
         </>
     )
