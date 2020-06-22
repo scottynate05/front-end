@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Jumbotron, Button, Navbar, Col, Row} from 'reactstrap'
+import {Jumbotron, Button, Navbar, Col, Row, Container} from 'reactstrap'
 import {Link, Route} from 'react-router-dom'
 
 import './App.css';
