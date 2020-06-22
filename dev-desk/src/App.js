@@ -15,7 +15,7 @@ function App() {
       <Navbar>
           <Jumbotron>
             <Row>
-              <h1>Lambda Help Desk</h1>
+              <h1 className="display-3">Lambda Help Desk</h1>
               <Link to={"/"}>
                 <Button>
                   Home
