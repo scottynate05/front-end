@@ -33,7 +33,7 @@ const Register = () => {
         password:yup.string().required('Password is required').matches(
             /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
             "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"),
-        repassword:yup.string().required('Must reenter password').oneOf([yup.ref('password'), null], 'Passwords must match'),
+        repassword:yup.string().oneOf([yup.ref('password'), null]).required('Password confirm is required'),
         helperCheck: yup.boolean(),
         studentCheck: yup.boolean()
 
@@ -46,7 +46,7 @@ const Register = () => {
         helperCheck:false,    
         studentCheck:false
     })
-
+    console.log(formData)
     const [errors,setErrors] = useState ({
         username:'',
         password:'',
@@ -54,10 +54,9 @@ const Register = () => {
         helperCheck:'',    
         studentCheck:''        
     })
-
+    console.log(errors)
     const eventChange = (event) => {
         event.persist()
-        console.log(event)
         validate(event)
         setFormData({ ...formData,
             [event.target.name]: event.target.type === 'checkbox'? event.target.checked: event.target.value
