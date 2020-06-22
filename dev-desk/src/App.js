@@ -9,7 +9,9 @@ function App() {
   return (
   <>
       <Navbar>
-          <Jumbotron>Lambda Help Desk</Jumbotron>  
+          <Jumbotron>
+            <h1>Lambda Help Desk</h1>
+          </Jumbotron>  
           <Link to={"/"}>
             <Button>
               Home
