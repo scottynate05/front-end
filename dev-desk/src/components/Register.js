@@ -81,14 +81,14 @@ const Register = () => {
                     <Row>
                         <Label>
                             Password
-                            <input name ='password' type='text' data-cy='password' value={formData.password} onChange={eventChange}>
+                            <input name ='password' type='password' data-cy='password' value={formData.password} onChange={eventChange}>
                             </input>                    
                         </Label>                    
                     </Row>
                     <Row>
                         <Label>
                             Re-enter Password
-                            <input name ='repassword' type='text' data-cy='repassword'value={formData.repassword} onChange={eventChange} >
+                            <input name ='repassword' type='password' data-cy='repassword'value={formData.repassword} onChange={eventChange} >
                             </input>                    
                         </Label>                    
                     </Row>
@@ -99,13 +99,13 @@ const Register = () => {
                             </input>                    
                         </Label>                    
                     </Row>
-                    <Row>
+                    {/* <Row>
                     <Label>
                         Are you a Student?
                         <input name ='studentCheck' type='checkbox' data-cy='studentcheck' value={formData.studentCheck} onChange={eventChange} >
                         </input>                    
                     </Label>                    
-                    </Row>
+                    </Row> */}
                     <Row>
                         <Button disabled ={buttonDisabled}>Register</Button>                    
                     </Row>
