@@ -14,12 +14,14 @@ function App() {
 
       <Navbar>
           <Jumbotron>
-            <h1>Lambda Help Desk</h1>
-          <Link to={"/"}>
-            <Button>
-              Home
-            </Button>
-          </Link>
+            <Row>
+              <h1>Lambda Help Desk</h1>
+              <Link to={"/"}>
+                <Button>
+                  Home
+                </Button>
+              </Link>
+          </Row>
           </Jumbotron>  
 
       </Navbar>
