@@ -1,9 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import history from '../utils/history'
-import { Link } from 'react-router-dom'
-import axiosWithAuth from '../utils/axiosWithAuth'
-import {Form, Label, Button, Card, Col, Row} from 'reactstrap'
+import {Form, Label, Button, Col, Row} from 'reactstrap'
 
 const Login = props => {
     const [user, setUser] = useState({

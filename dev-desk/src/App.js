@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Jumbotron, Button, Navbar, Col, Row, Container} from 'reactstrap'
+import {Jumbotron, Button, Col, Row, Container} from 'reactstrap'
 import {Link, Route, Switch} from 'react-router-dom'
 
 import './App.css';
@@ -19,18 +19,17 @@ import EditTicket from './components/EditTicket';
 
 function App() {
   return (
-  <>
-
-          <Jumbotron fluid>
-            <Container fluid style={{display:'flex',justifyContent:'space-between',paddingLeft:'5%', paddingRight:'5%'}}>
-                <h1 className="display-3" style={{display:'inline'}}>Lambda Help Desk</h1>
-                    <Link to={"/"}>
-                      <Button>
-                        Home
-                      </Button>
-                    </Link>
-            </Container>
-          </Jumbotron>  
+    <>
+      <Jumbotron fluid>
+        <Container fluid style={{display:'flex',justifyContent:'space-between',paddingLeft:'5%', paddingRight:'5%'}}>
+            <h1 className="display-3" style={{display:'inline'}}>Lambda Help Desk</h1>
+                <Link to={"/studentdashboard"}>
+                  <Button>
+                    Home
+                  </Button>
+                </Link>
+        </Container>
+      </Jumbotron>  
 
       <Route exact path='/'>
         <Row>

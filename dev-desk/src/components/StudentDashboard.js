@@ -28,7 +28,7 @@ const StudentDashboard = () => {
             <Button>Edit Existing Ticket</Button>
         </Link>
         <Link to='/studentticket'>
-            <Button>Student Ticket</Button>
+            <Button>Student Tickets</Button>
         </Link>     
 
         <Route path='/addticket'>
