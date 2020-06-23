@@ -21,11 +21,12 @@ const StudentDashboard = () => {
 
     return(
         <>
+
         <Container>
             <h2 className='text-center'>Student Dashboard</h2>
             <h6>Welcome! here you will your tools for viewing, adding, and editing your tickets, they will be viewed and responded to by our certified Student Helpers.</h6>
         </Container>
-
+        <h3 style={{padding:'5%'}}>Posted Tickets:</h3>
         <Row style={{paddingLeft:'5%',paddingRight:'5%'}}>
         <Col sm='6'>
         <Card body className='text-center'>
@@ -45,7 +46,7 @@ const StudentDashboard = () => {
         </Col>
         </Row>
 
-        <h3>Posted Tickets</h3>
+
 
         <Route path='/addticket'>
            <AddTicket/>
