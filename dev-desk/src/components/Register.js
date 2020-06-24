@@ -54,8 +54,8 @@ const Register = () => {
         username:'',
         password:'',
         repassword:'',
-        helperCheck:'',    
-        studentCheck:''        
+        helperCheck:'',
+        studentCheck:''
     })
     console.log('errors: ', errors)
     const eventChange = (event) => {

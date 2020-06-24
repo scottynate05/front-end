@@ -6,13 +6,14 @@ import {Form, Label, Button, Col, Row} from 'reactstrap'
 const Login = props => {
     const [user, setUser] = useState({
         username: '',
-        password: ''
+        password: '',
+        helperCheck: ''
     })
 
     const handleChanges = e => {
         setUser({
             ...user,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.type === 'checkbox'? e.target.checked: e.target.value
         })
     }
 
@@ -22,9 +23,14 @@ const Login = props => {
             .post('https://devdesk-queue-2.herokuapp.com/api/user/login', user)
             .then(res => {
                 localStorage.setItem('token', res.data.token)
-                history.push('/studentdashboard')
-                window.location.reload(0)
-                console.log(res)
+                if (user.helperCheck === true) {
+                    history.push('/staffdashboard')
+                    window.location.reload(0)
+                } else {
+                    history.push('/studentdashboard')
+                    window.location.reload(0)
+                }
+                console.log('res: ', res)
             })
             .catch(err => console.log('err: ', err.message, err.response))
     }
@@ -55,9 +61,16 @@ const Login = props => {
                         />                   
                     </Label>
                 </Row>
-                    <Row>
-                        <Button>Login</Button>
-                    </Row>
+                <Row>
+                    <Label>
+                        Are you a Helper?
+                        <input name ='helperCheck' type='checkbox' data-cy='helpercheck' value={user.helperCheck} onChange={handleChanges}>
+                        </input>                    
+                    </Label>                    
+                </Row>
+                <Row>
+                    <Button>Login</Button>
+                </Row>
                 </Col>
             </Form>
         </>
