@@ -23,7 +23,7 @@ const StaffDashboard = () => {
         </Col>
         <Col sm='6'>
         <Card body className='text-center'>
-            <CardTitle>Want to every ticket posted?</CardTitle>
+            <CardTitle>Want to see every ticket posted?</CardTitle>
             <Link to ='/ticketlist'>
                 <Button color='primary'>Open Ticket List</Button>
             </Link>           
@@ -31,11 +31,11 @@ const StaffDashboard = () => {
         </Col>
         </Row>
 
-        <Route to ='/staffticket'>
+        <Route path ='/staffticket'>
             <StaffTicket/>
         </Route>
         
-        <Route to ='/ticketlist'>
+        <Route path ='/ticketlist'>
             <TicketList/>
         </Route>
             
