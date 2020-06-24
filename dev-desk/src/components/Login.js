@@ -69,7 +69,7 @@ const Login = props => {
                     </Label>                    
                 </Row>
                 <Row>
-                    <Button>Login</Button>
+                    <Button color='primary'>Login</Button>
                 </Row>
                 </Col>
             </Form>
