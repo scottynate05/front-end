@@ -14,7 +14,7 @@ const EditTicket = props => {
     const { push } = useHistory();
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/api/ticket/${id}`)
+            .get(`http://localhost:5000/editTicket/${id}`)
             .then(res => setTicket(res.data))
             .catch(err =>
                 console.error(
@@ -36,7 +36,7 @@ const EditTicket = props => {
         ev.preventDefault();
         // make a PUT request to edit the item
         axios
-            .put(`http://localhost:5000/api/ticket/${ticket.id}`, ticket)
+            .put(`http://localhost:5000/editTicket/${ticket.id}`, ticket)
             .then(res => {
                 const newticket = props.ticket.map(mov => {
                     if (mov.id === ticket.id) {
@@ -83,12 +83,12 @@ const EditTicket = props => {
                     value={ticket.status}
                 />
                 <input
-//not able to get this working
-                    // type='text'
-                    // name='message'
-                    // onChange={handleChange}
-                    // placeholder='Message'
-                    // value={ticket.messages[0].body}
+
+                    type='text'
+                    name='message'
+                    onChange={handleChange}
+                    placeholder='Message'
+                    value={ticket.messages,[0].body}
                 />
                 <button>Update Ticket</button>
             </form>
