@@ -140,7 +140,7 @@ const Register = () => {
                     </Label>                    
                     </Row> */}
                     <Row>
-                        <Button disabled ={buttonDisabled}>Register</Button>                    
+                        <Button color='primary' disabled ={buttonDisabled}>Register</Button>                    
                     </Row>
                 </Col>
             </Form>
