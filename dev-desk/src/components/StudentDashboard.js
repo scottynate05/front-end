@@ -21,17 +21,6 @@ const StudentDashboard = () => {
 
     return(
         <>
-<<<<<<< HEAD
-        <Link to='/addticket'>
-            <Button>Add a Ticket</Button>
-        </Link>
-        <Link to='/editTicket'>
-            <Button>Edit Existing Ticket</Button>
-        </Link>
-        <Link to='/studentticket'>
-            <Button>Student Tickets</Button>
-        </Link>     
-=======
 
         <Container>
             <h2 className='text-center'>Student Dashboard</h2>
@@ -58,7 +47,6 @@ const StudentDashboard = () => {
         </Card>            
         </Col>
         </Row>
->>>>>>> 06fcaf879d06dc5a323af8c3b9d308abd1b2dcef
 
         <Route path='/addticket'>
            <AddTicket/>
