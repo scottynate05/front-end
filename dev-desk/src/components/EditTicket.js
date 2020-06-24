@@ -9,7 +9,7 @@ const initialState = {
     message:''
 }
 const EditTicket = props => {
-    const [Tticket, setTicket] = useState(initialState);
+    const [ticket, setTicket] = useState(initialState);
     const { id } = useParams();
     const { push } = useHistory();
     useEffect(() => {
@@ -83,11 +83,11 @@ const EditTicket = props => {
                     value={ticket.status}
                 />
                 <input
-                    type='text'
-                    name='message'
-                    onChange={handleChange}
-                    placeholder='Message'
-                    value={ticket.messages[0].body}
+                    // type='text'
+                    // name='message'
+                    // onChange={handleChange}
+                    // placeholder='Message'
+                    // value={ticket.messages[0].body}
                 />
                 <button>Update Ticket</button>
             </form>
