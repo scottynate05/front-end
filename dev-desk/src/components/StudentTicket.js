@@ -1,8 +1,13 @@
 import React from 'react'
-
-const StudentTicket = () => {
+import {Card, CardTitle} from 'reactstrap'
+const StudentTicket = (props) => {
     return(
         <> 
+        <Card>
+            <CardTitle>
+                {props.}
+            </CardTitle>
+        </Card>
         </>
     )
 }
