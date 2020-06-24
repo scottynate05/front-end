@@ -5,7 +5,7 @@ const StudentTicket = (props) => {
         <> 
         <Card>
             <CardTitle>
-                {props.}
+                {}
             </CardTitle>
         </Card>
         </>
