@@ -9,11 +9,11 @@ const StaffDashboard = () => {
         <>
         <h2>Welcome to your Staff Dashboard</h2>
         <Link to ='/staffticket'>
-            <Button>Open Staff Tickets</Button>
+            <Button color='primary'>Open Staff Tickets</Button>
         </Link>
 
         <Link to ='/ticketlist'>
-            <Button>Open Staff Tickets</Button>
+            <Button color='primary'>Open Staff Tickets</Button>
         </Link>
 
             <Route to ='/staffticket'>
