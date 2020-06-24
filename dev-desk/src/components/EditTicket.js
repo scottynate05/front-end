@@ -69,20 +69,6 @@ const EditTicket = props => {
                     value={ticket.subject}
                 />
                 <input
-                    type='number'
-                    name='id'
-                    onChange={handleChange}
-                    placeholder='Id'
-                    value={ticket.id}
-                />
-                <input
-                    type='text'
-                    name='status'
-                    onChange={handleChange}
-                    placeholder='Status'
-                    value={ticket.status}
-                />
-                <input
 
                     type='text'
                     name='message'

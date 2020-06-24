@@ -29,7 +29,7 @@ const StudentDashboard = () => {
 
         <h3 style={{padding:'5%'}}>Posted Tickets:</h3>
         
-        <div>tickys:
+        <div>
             {tickets.map(tick => (
             <StudentTicket key={tick.id} ticket={tick}/>
         ))}            

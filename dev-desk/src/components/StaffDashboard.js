@@ -17,7 +17,7 @@ const StaffDashboard = () => {
         <Row style={{paddingLeft:'5%',paddingRight:'5%'}}>
         <Col sm='6'>
         <Card body className='text-center'>
-            <CardTitle>Loooking to view the tickets assigned to you?</CardTitle>
+            <CardTitle>Loooking to view your assigned tickets?</CardTitle>
             <Link to ='/staffticket'>
                 <Button color='primary'>Open Staff Tickets</Button>
             </Link>           
