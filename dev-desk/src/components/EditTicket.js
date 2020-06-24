@@ -83,6 +83,7 @@ const EditTicket = props => {
                     value={ticket.status}
                 />
                 <input
+//not able to get this working
                     // type='text'
                     // name='message'
                     // onChange={handleChange}
