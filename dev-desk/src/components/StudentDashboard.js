@@ -41,7 +41,7 @@ const StudentDashboard = () => {
         <Card body className='text-center'>
             <CardTitle>Need to post a ticket to reach out to a helper?</CardTitle>
             <Link to='/addticket'>
-                <Button>Add a Ticket</Button>
+                <Button color='primary'>Add a Ticket</Button>
             </Link>            
         </Card>        
         </Col>
@@ -49,7 +49,7 @@ const StudentDashboard = () => {
         <Card body className='text-center'>
             <CardTitle>Want to update a ticket that you've posted?</CardTitle>
             <Link to='/editTicket'>
-                <Button>Edit Ticket</Button>
+                <Button color='primary'>Edit Ticket</Button>
             </Link>            
         </Card>            
         </Col>
