@@ -1,22 +1,23 @@
 import React from 'react'
-import {Card, CardTitle, CardSubtitle, CardText} from 'reactstrap'
+import {Card, CardSubtitle} from 'reactstrap'
 
 
 
 const StudentTicket = (props) => {
     return(
  
-        <Card>
-            <CardTitle>
+        <Card style={{margin:'2%'}}>
+            <h4>
                 {props.ticket.subject}
-            </CardTitle>
+            </h4>
             <CardSubtitle>
                 status:{props.ticket.status}
             </CardSubtitle>
-            <CardText>
+            <h6>
                 {props.ticket.messages[0].body}
-            </CardText>
+            </h6>
         </Card>
+        
     )
 }
 

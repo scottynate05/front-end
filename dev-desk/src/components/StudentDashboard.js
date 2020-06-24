@@ -26,17 +26,16 @@ const StudentDashboard = () => {
             <h2 className='text-center'>Student Dashboard</h2>
             <h6>Welcome! here you will your tools for viewing, adding, and editing your tickets, they will be viewed and responded to by our certified Student Helpers.</h6>
         </Container>
-
-        <h3 style={{padding:'5%'}}>Posted Tickets:</h3>
         
-        <div>
+        <div style={{padding:'5%'}}>
+        <h3 >Posted Tickets:</h3>
+        
             {tickets.map(tick => (
             <StudentTicket key={tick.id} ticket={tick}/>
         ))}            
-        </div>
 
 
-        <Row style={{paddingLeft:'5%',paddingRight:'5%'}}>
+        <Row style={{paddingRight:'5%'}}>
         <Col sm='6'>
         <Card body className='text-center'>
             <CardTitle>Need to post a ticket to reach out to a helper?</CardTitle>
@@ -54,6 +53,7 @@ const StudentDashboard = () => {
         </Card>            
         </Col>
         </Row>
+        </div>
 
         <Route path='/addticket'>
            <AddTicket/>
