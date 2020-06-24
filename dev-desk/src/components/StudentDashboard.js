@@ -28,7 +28,14 @@ const StudentDashboard = () => {
         </Container>
 
         <h3 style={{padding:'5%'}}>Posted Tickets:</h3>
- 
+        
+        <div>tickys:
+            {tickets.map(tick => (
+            <StudentTicket key={tick.id} ticket={tick}/>
+        ))}            
+        </div>
+
+
         <Row style={{paddingLeft:'5%',paddingRight:'5%'}}>
         <Col sm='6'>
         <Card body className='text-center'>
