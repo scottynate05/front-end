@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import history from "../utils/history"
 
 import {Form, Label, Col, Row, Button} from 'reactstrap'
 import * as yup from 'yup'
@@ -23,11 +24,11 @@ const Register = () => {
         })
     }
 
-    useEffect(()=> {
-        formschema.isValid(formData).then(valid=>{
-            setButtonDisabled(!valid);
-        })
-    })
+    // useEffect(()=> {
+    //     formschema.isValid(formData).then(valid=>{
+    //         setButtonDisabled(!valid);
+    //     })
+    // }, [formData, formschema])
 
     const formschema = yup.object().shape({
         username:yup.string().required('Username is required'),
@@ -35,6 +36,7 @@ const Register = () => {
             /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
             "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"),
         repassword:yup.string().oneOf([yup.ref('password'), null]).required('Password confirm is required'),
+        // roles:yup.string().required('Role is required'),
         helperCheck: yup.boolean(),
         studentCheck: yup.boolean()
 
@@ -47,7 +49,7 @@ const Register = () => {
         helperCheck:false,    
         studentCheck:false
     })
-    console.log(formData)
+    console.log('formData: ', formData)
     const [errors,setErrors] = useState ({
         username:'',
         password:'',
@@ -55,7 +57,7 @@ const Register = () => {
         helperCheck:'',    
         studentCheck:''        
     })
-    console.log(errors)
+    console.log('errors: ', errors)
     const eventChange = (event) => {
         event.persist()
         validate(event)
@@ -70,8 +72,27 @@ const Register = () => {
     const submitFunc = (event) => {
         event.preventDefault();
         setFormData({username:'', password:'', repassword:'', helperCheck:false, studentCheck:false})
-            axios.post()
+            axios
+                .post('https://devdesk-queue-2.herokuapp.com/api/user/register', {...formData, roles: []})
+                .then(res => {
+                    localStorage.setItem('token', res.data.token)
+                    if (formData.helperCheck === true) {
+                        history.push('/staffdashboard')
+                        window.location.reload(0)
+                    } else {
+                        history.push('/studentdashboard')
+                        window.location.reload(0)
+                    }
+                    console.log('res: ', res)
+                })
+                .catch(err => console.log('err: ', err.message, err.response))
     }
+
+    useEffect(()=> {
+        formschema.isValid(formData).then(valid=>{
+            setButtonDisabled(!valid);
+        })
+    }, [formData, formschema])
 
     return(
         <>
@@ -98,6 +119,12 @@ const Register = () => {
                             </input>                    
                         </Label>                    
                     </Row>
+                    {/* <Row>
+                        <Label>
+                            Roles
+                            <input name ='roles' type='array' data-cy='roles' value={formData.roles} onChange={eventChange} />                
+                        </Label>
+                    </Row> */}
                     <Row>
                         <Label>
                             Are you a Helper?

@@ -1,10 +1,22 @@
 import React from 'react'
+import {Card, CardTitle, CardSubtitle, CardText} from 'reactstrap'
 
-const StudentTicket = () => {
+
+
+const StudentTicket = (props) => {
     return(
-        <>
-            <h1>Big Tester</h1>
-        </>
+ 
+        <Card>
+            <CardTitle>
+                {props.ticket.subject}
+            </CardTitle>
+            <CardSubtitle>
+                status:{props.ticket.status}
+            </CardSubtitle>
+            <CardText>
+                {props.ticket.messages[0].body}
+            </CardText>
+        </Card>
     )
 }
 
