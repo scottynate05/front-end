@@ -41,7 +41,7 @@ const Login = props => {
                 <Col>
                 <Row>
                     <Label >
-                        Username
+                       <Row> Username</Row>
                         <input
                             type='username'
                             name='username'
@@ -52,7 +52,7 @@ const Login = props => {
                 </Row>
                 <Row>
                     <Label>
-                        Password
+                        <Row>Password</Row>
                         <input
                             type='password'
                             name='password'
