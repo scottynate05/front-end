@@ -23,7 +23,7 @@ function App() {
       <Jumbotron fluid>
         <Container fluid style={{display:'flex',justifyContent:'space-between',paddingLeft:'5%', paddingRight:'5%'}}>
             <h1 className="display-3" style={{display:'inline'}}>Lambda Help Desk</h1>
-                <Link to={"/studentdashboard"}>
+                <Link to={"/"}>
                   <Button>
                     Home
                   </Button>
