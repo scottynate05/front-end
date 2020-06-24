@@ -20,11 +20,11 @@ import EditTicket from './components/EditTicket';
 function App() {
   return (
     <>
-      <Jumbotron fluid>
+      <Jumbotron fluid style={{backgroundColor:'#188cc5'}}>
         <Container fluid style={{display:'flex',justifyContent:'space-between',paddingLeft:'5%', paddingRight:'5%'}}>
             <h1 className="display-3" style={{display:'inline'}}>Lambda Help Desk</h1>
                 <Link to={"/"}>
-                  <Button>
+                  <Button style={{border:'1px solid grey',backgroundColor:'white', color:'black'}}>
                     Home
                   </Button>
                 </Link>
@@ -36,7 +36,7 @@ function App() {
           <Col style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
             <p>Already Registered?</p>
             <Link to={'/login'}>
-                <Button>
+                <Button color='primary'>
                   Log-in
                 </Button>
             </Link>
@@ -44,7 +44,7 @@ function App() {
           <Col style={{display:'flex',flexDirection:'column', alignItems:'center'}}>
             <p>New to Help Desk?</p>
             <Link to={'/register'}>
-                <Button>
+                <Button color='primary'>
                   Register
                 </Button>
             </Link>            
