@@ -28,7 +28,7 @@ const StudentDashboard = () => {
         </Container>
 
         <h3 style={{padding:'5%'}}>Posted Tickets:</h3>
- 
+        <StudentTicket/>
         <Row style={{paddingLeft:'5%',paddingRight:'5%'}}>
         <Col sm='6'>
         <Card body className='text-center'>
