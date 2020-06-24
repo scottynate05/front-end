@@ -1,19 +1,22 @@
 import React from 'react'
-import {Card, CardTitle} from 'reactstrap'
+import {Card, CardTitle, CardSubtitle, CardText} from 'reactstrap'
 
 
 
 const StudentTicket = (props) => {
     return(
-
-       
-        <> 
+ 
         <Card>
             <CardTitle>
-                {props.subject}
+                {props.ticket.subject}
             </CardTitle>
+            <CardSubtitle>
+                status:{props.ticket.status}
+            </CardSubtitle>
+            <CardText>
+                {props.ticket.messages[0].body}
+            </CardText>
         </Card>
-        </>
     )
 }
 
