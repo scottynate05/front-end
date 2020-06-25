@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {Card, CardSubtitle, Button} from 'reactstrap'
+import {Card, CardSubtitle, Button,Row,Col} from 'reactstrap'
 import { useParams, useHistory, Link } from 'react-router-dom'
 import axios from 'axios'
 import axiosWithAuth from '../utils/axiosWithAuth'
