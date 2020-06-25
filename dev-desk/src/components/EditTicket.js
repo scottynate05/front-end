@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import axios from 'axios';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 const initialState = {
     id: '',
@@ -13,8 +13,8 @@ const EditTicket = props => {
     const { id } = useParams();
     const { push } = useHistory();
     useEffect(() => {
-        axios
-            .get(`http://localhost:5000/editTicket/${id}`)
+        axiosWithAuth()
+            .get(`/tickets/:id${ticket.id}`)
             .then(res => setTicket(res.data))
             .catch(err =>
                 console.error(
@@ -23,29 +23,29 @@ const EditTicket = props => {
                     err.response
                 )
             )
-    }, [id])
+    }, [])
     const handleChange = e => {
         e.persist();
         setTicket({
             ...ticket,
             [e.target.name]: e.target.value
         })
-        console.log('nb: UpdateTicket.js: handleChange: ticket: ', ticket);
+        console.log('nb: EditTicket.js: handleChange: ticket: ', ticket);
     }
     const handleSubmit = ev => {
         ev.preventDefault();
         // make a PUT request to edit the item
-        axios
-            .put(`http://localhost:5000/editTicket/${ticket.id}`, ticket)
+        axiosWithAuth()
+            .put(`/tickets/:id${ticket.id}/update`, ticket)
             .then(res => {
-                const newticket = props.ticket.map(mov => {
-                    if (mov.id === ticket.id) {
+                const newticket = props.ticket.map(tic => {
+                    if (tic.id === ticket.id) {
                         return ticket;
                     }
-                    return mov;
+                    return tic;
                 })
                 setTicket(newticket)
-                push(`/ticket-list/${ticket.id}`)
+                push(`/ticketlist/${ticket.id}`)
                 window.location.reload(0)
                 // <Redirect to='/' />
             })

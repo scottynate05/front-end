@@ -21,7 +21,7 @@ const StudentTicket = (props) => {
 
     useEffect(() => {
         fetchTicket(id)
-    }, [id])
+    }, [])
 
     // if (!tickets) {
     //     return <div>Loading ticket information...</div>

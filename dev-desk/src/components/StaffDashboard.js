@@ -4,6 +4,7 @@ import {Button, Container,Row,Col, Card, CardTitle} from 'reactstrap'
 import StaffTicket from './StaffTicket'
 import TicketList from './TicketList'
 import axiosWithAuth from '../utils/axiosWithAuth'
+import PrivateRoute from './PrivateRoute'
 
 
 
@@ -47,13 +48,13 @@ const StaffDashboard = () => {
         </Col>
         </Row>
 
-        <Route path ='/staffticket'>
+        <PrivateRoute path ='/staffticket'>
             <StaffTicket/>
-        </Route>
+        </PrivateRoute>
         
-        <Route path ='/ticketlist'>
+        <PrivateRoute path ='/ticketlist'>
             <TicketList/>
-        </Route>
+        </PrivateRoute>
             
         </>
     )

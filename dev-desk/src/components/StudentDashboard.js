@@ -78,7 +78,7 @@ const StudentDashboard = () => {
            <AddTicket/>
         </PrivateRoute> 
         <PrivateRoute path='/editTicket'>
-           <EditTicket/>
+           <EditTicket tickets={tickets} setTickets={setTickets} />
         </PrivateRoute>
         <PrivateRoute path='/studentticket'>
            <StudentTicket tickets={tickets} setTickets={setTickets} />
