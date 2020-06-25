@@ -1,12 +1,14 @@
 import React,{useState} from 'react'
 import {Form,Row, Col, Label, Button} from 'reactstrap'
 import axios from 'axios'
+import axiosWithAuth from '../utils/axiosWithAuth'
+import history from '../utils/history'
 
 const AddTicket = () => {
 
 const [newTicket,setNewTicket] = useState({
     subject:'',
-    message:'',
+    body:'',
 })
 
 const eventHandler = (event) => {
@@ -18,24 +20,27 @@ const eventHandler = (event) => {
 }
 console.log(newTicket)
 
-const submitButton = (e) => {
-    e.preventDefault();
-    axios.post('https://reqres.in/api/users', newTicket)
-        .then(res=>{
-            console.log('res', res)
-        })
-        .catch(err => {
-            console.log('err: ', err.message, err.response)
-        })   
-}
+// const submitButton = (e) => {
+//     e.preventDefault();
+//     axios.post('https://reqres.in/api/users', newTicket)
+//         .then(res=>{
+//             console.log('res', res)
+//         })
+//         .catch(err => {
+//             console.log('err: ', err.message, err.response)
+//         })   
+// }
 
     return (
         <div style={{paddingLeft:'5%'}}>
             <h3>Add Ticket</h3>
             <Form onSubmit={(event) =>{event.preventDefault()
-                axios.post('https://devdesk-queue-2.herokuapp.com/api/tickets', newTicket)
+                axiosWithAuth()
+                .post('https://devdesk-queue-2.herokuapp.com/api/tickets', newTicket)
                 .then(res=>{
                     console.log('res', res)
+                    history.push('/studentdashboard')
+                    window.location.reload(0)
                 })
                 .catch(err => {
                     console.log('err: ', err.message, err.response)
@@ -57,7 +62,7 @@ const submitButton = (e) => {
                         </Label>     
                     </Row>             
                     <Row>
-                        <textarea name='message' type='text' value={newTicket.message} onChange={eventHandler}>
+                        <textarea name='body' type='text' value={newTicket.body} onChange={eventHandler}>
                         </textarea>      
                     </Row>   
                     <Button color='primary' >Add</Button>   

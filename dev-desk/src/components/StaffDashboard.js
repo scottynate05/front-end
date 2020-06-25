@@ -14,7 +14,7 @@ const StaffDashboard = () => {
 
     useEffect(() => {
         axiosWithAuth()
-            .get('/tickets')
+            .get('/tickets?role=helper')
             .then(res => {
                 setTickets(res.data)
                 console.log('res: ', res.data)
