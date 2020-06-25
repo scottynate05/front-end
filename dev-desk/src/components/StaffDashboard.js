@@ -10,6 +10,17 @@ import axiosWithAuth from '../utils/axiosWithAuth'
 const StaffDashboard = () => {
 
     const [tickets, setTickets] = useState([])
+    const [openTickets, setOpenTickets] = useState([])
+
+    useEffect(() => {
+        axiosWithAuth()
+            .get('https://devdesk-queue-2.herokuapp.com/api/tickets/queue')
+            .then(res => {
+                setOpenTickets(res.data)
+                console.log('res: ', res.data)
+            })
+            .catch(err => console.log('err: ', err.message, err.response))
+    }, [])
 
     useEffect(() => {
         axiosWithAuth()
@@ -39,20 +50,15 @@ const StaffDashboard = () => {
         </Col>
         <Col sm='6'>
         <Card body className='text-center'>
-            <CardTitle>Want to see every ticket posted?</CardTitle>
-            <Link to ='/ticketlist'>
-                <Button color='primary'>Open Ticket List</Button>
-            </Link>           
+            <CardTitle>Open Tickets:</CardTitle>
+            {openTickets.map(tick => (
+            <TicketList key={tick.id} ticket={tick}/>))}
         </Card>            
         </Col>
         </Row>
 
         <Route path ='/staffticket'>
             <StaffTicket/>
-        </Route>
-        
-        <Route path ='/ticketlist'>
-            <TicketList/>
         </Route>
             
         </>
