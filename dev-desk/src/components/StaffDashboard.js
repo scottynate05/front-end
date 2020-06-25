@@ -1,12 +1,26 @@
-import React from 'react'
+import React,{ useState, useEffect} from 'react'
 import {Link,Route} from 'react-router-dom'
 import {Button, Container,Row,Col, Card, CardTitle,CardSubtitle} from 'reactstrap'
 import StaffTicket from './StaffTicket'
 import TicketList from './TicketList'
+import axiosWithAuth from '../utils/axiosWithAuth'
 
 
 
 const StaffDashboard = () => {
+
+    const [tickets, setTickets] = useState([])
+
+    useEffect(() => {
+        axiosWithAuth()
+            .get('/tickets')
+            .then(res => {
+                setTickets(res.data)
+                console.log('res: ', res.data)
+            })
+            .catch(err => console.log('err: ', err.message, err.response))
+    }, [])
+
     return (
         <>
         <Container className='text-center'>
