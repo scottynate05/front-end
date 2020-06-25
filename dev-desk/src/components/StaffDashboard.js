@@ -4,6 +4,7 @@ import {Button, Container,Row,Col, Card, CardTitle} from 'reactstrap'
 import StaffTicket from './StaffTicket'
 import TicketList from './TicketList'
 import axiosWithAuth from '../utils/axiosWithAuth'
+import PrivateRoute from './PrivateRoute'
 
 
 
@@ -24,7 +25,7 @@ const StaffDashboard = () => {
 
     useEffect(() => {
         axiosWithAuth()
-            .get('/tickets')
+            .get('/tickets?role=helper')
             .then(res => {
                 setTickets(res.data)
                 console.log('res: ', res.data)
@@ -52,9 +53,13 @@ const StaffDashboard = () => {
             </Link>           
         </Card>                 
 
-        <Route path ='/staffticket'>
+        <PrivateRoute path ='/staffticket'>
             <StaffTicket/>
-        </Route>
+        </PrivateRoute>
+        
+        <PrivateRoute path ='/ticketlist'>
+            <TicketList/>
+        </PrivateRoute>
             
         </>
     )

@@ -59,7 +59,7 @@ function App() {
           <PrivateRoute path='/staffticket' component={StaffTicket} />
           <PrivateRoute path='/ticketlist' component={TicketList} />
           <PrivateRoute path='/addticket' component={AddTicket} />
-          <PrivateRoute path='/editticket' component={EditTicket} />
+          <PrivateRoute path='/editticket/:id' component={EditTicket} />
           <Route path='/login'>
             <Login/>
           </Route>
