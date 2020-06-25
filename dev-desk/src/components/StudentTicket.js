@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {Card, CardSubtitle, Button} from 'reactstrap'
+import {Card, CardSubtitle, Button,Row,Col} from 'reactstrap'
 import { useParams, useHistory, Link } from 'react-router-dom'
 import axios from 'axios'
 import axiosWithAuth from '../utils/axiosWithAuth'
@@ -53,9 +53,18 @@ const StudentTicket = (props) => {
             <h6>
                 {props.ticket.messages[0].body}
             </h6>
-            <Button onClick={() => push(`/editticket/${id}`)} color='primary'><Link to='/editticket'>Update Ticket</Link></Button>
-            <Button onClick={handleDelete} color='primary'>Delete Ticket</Button>
-            <Button color='primary'>Mark as Complete</Button>
+            <Row>
+                <Col>
+                    <Button onClick={() => push(`/editticket/${id}`)} color='primary'><Link style={{color:'white'}} to='/editticket'>Update Ticket</Link></Button>
+                </Col>
+                <Col>
+                    <Button onClick={handleDelete} color='primary'>Delete Ticket</Button>                
+                </Col>
+                <Col>
+                    <Button color='primary'>Mark as Complete</Button>       
+                </Col>        
+            </Row>
+
         </Card>
     )
 }
