@@ -32,7 +32,15 @@ const submitButton = (e) => {
     return (
         <div style={{paddingLeft:'5%'}}>
             <h3>Add Ticket</h3>
-            <Form onSubmit={(event) =>{event.preventDefault()}}>
+            <Form onSubmit={(event) =>{event.preventDefault()
+                axios.post('https://devdesk-queue-2.herokuapp.com/api/tickets', newTicket)
+                .then(res=>{
+                    console.log('res', res)
+                })
+                .catch(err => {
+                    console.log('err: ', err.message, err.response)
+                }) 
+                }}>
                 <Col>
                     <Row>
                         <Label>
