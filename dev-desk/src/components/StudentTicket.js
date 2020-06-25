@@ -12,60 +12,41 @@ const StudentTicket = (props) => {
     const { id } = useParams()
     const { push } = useHistory()
 
-    const fetchTicket = (id) => {
+    const fetchTicket = () => {
         axiosWithAuth()
-            .get(`https://devdesk-queue-2.herokuapp.com/api/tickets/${id}`)
+            .get(`https://devdesk-queue-2.herokuapp.com/api/tickets`)
             .then((res) => setTickets(res.data))
-            .catch((err) => console.log('err: ', err.response, err.message))
+            .catch((err) => console.log('err: inside StudentTicket.js', err.response, err.message))
     }
 
     useEffect(() => {
-        fetchTicket(id)
-    }, [id])
+        console.log(props)
+        fetchTicket()
+        console.log(props.ticket.status)
+    }, [])
 
     // if (!tickets) {
     //     return <div>Loading ticket information...</div>
     // }
 
-    const handleDelete = e => {
-        e.preventDefault()
-        axiosWithAuth()
-            .delete(`/tickets${id}`)
-            .then(res => {
-                setTickets(res.data)
-                push('/studentdashboard')
-            })
-            .catch(err => 
-                console.error('err: ', err.message, err.response)
-            )
-    }
-
-
     return(
- 
-        <Card style={{margin:'2%'}}>
-            <h4>
-                {props.ticket.subject}
-            </h4>
-            <CardSubtitle>
-                status:{props.ticket.status}
-            </CardSubtitle>
-            <h6>
-                {props.ticket.messages[0].body}
-            </h6>
-            <Row>
-                <Col>
-                    <Button onClick={() => push(`/editticket/${id}`)} color='primary'><Link style={{color:'white'}} to='/editticket'>Update Ticket</Link></Button>
-                </Col>
-                <Col>
-                    <Button onClick={handleDelete} color='primary'>Delete Ticket</Button>                
-                </Col>
-                <Col>
-                    <Button color='primary'>Mark as Complete</Button>       
-                </Col>        
-            </Row>
-
-        </Card>
+        <div>
+            {
+                props.ticket.status == 'open' ?
+                (<Card style={{margin:'2%'}}>
+                    <h4>
+                        {props.ticket.subject}
+                    </h4>
+                    <CardSubtitle>
+                        status:{props.ticket.status}
+                    </CardSubtitle>
+                    <h6>
+                        {props.ticket.messages[0].body}
+                    </h6>
+                    <Button onClick={() => push(`/editticket/${props.ticket.id}`, tickets)} color='primary'><Link to='/editticket/:id'>Update Ticket</Link></Button>
+                </Card>) : ''
+            }
+        </div>
     )
 }
 
