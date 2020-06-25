@@ -3,6 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import history from '../utils/history'
 
+
 const initialState = {
     id: '',
     subject:'',
@@ -36,7 +37,7 @@ const EditTicket = props => {
             ...ticket,
             [e.target.name]: e.target.value
         })
-        console.log('nb: UpdateTicket.js: handleChange: ticket: ', ticket);
+        console.log('nb: EditTicket.js: handleChange: ticket: ', ticket);
     }
 
     const handleDelete = e => {
