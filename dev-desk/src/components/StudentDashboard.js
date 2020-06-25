@@ -6,6 +6,7 @@ import AddTicket from './AddTicket'
 import EditTicket from './EditTicket'
 import StudentTicket from './StudentTicket'
 import axiosWithAuth from '../utils/axiosWithAuth'
+import PrivateRoute from './PrivateRoute'
 
 const StudentDashboard = () => {
     const [tickets, setTickets] = useState([])
@@ -63,25 +64,25 @@ const StudentDashboard = () => {
         </Card>        
         </Col>
         <Col sm='6'>
-        <Card body className='text-center'>
+        {/* <Card body className='text-center'>
             <CardTitle>Want to update a ticket that you've posted?</CardTitle>
             <Link to='/editTicket'>
                 <Button color='primary'>Edit Ticket</Button>
             </Link>            
-        </Card>            
+        </Card>             */}
         </Col>
         </Row>
         </div>
 
-        <Route path='/addticket'>
+        <PrivateRoute path='/addticket'>
            <AddTicket/>
-        </Route> 
-        <Route path='/editTicket'>
+        </PrivateRoute> 
+        <PrivateRoute path='/editTicket'>
            <EditTicket/>
-        </Route>
-        <Route path='/studentticket'>
+        </PrivateRoute>
+        <PrivateRoute path='/studentticket'>
            <StudentTicket tickets={tickets} setTickets={setTickets} />
-        </Route>
+        </PrivateRoute>
         </>
     )
 

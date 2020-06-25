@@ -64,7 +64,6 @@ const Register = () => {
         setFormData({ ...formData,
             [event.target.name]: event.target.type === 'checkbox'? event.target.checked: event.target.value
         })
-
     }
 
     const [buttonDisabled, setButtonDisabled] = useState(true)
