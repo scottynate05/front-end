@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {Button, Card, CardTitle, Col, Row, Container } from 'reactstrap'
-import {Link,Route} from 'react-router-dom'
+import {Link,Route,useParams,useHistory} from 'react-router-dom'
+
 import AddTicket from './AddTicket'
 import EditTicket from './EditTicket'
 import StudentTicket from './StudentTicket'
@@ -8,6 +9,23 @@ import axiosWithAuth from '../utils/axiosWithAuth'
 
 const StudentDashboard = () => {
     const [tickets, setTickets] = useState([])
+    // const { id } = useParams()
+    // const { push } = useHistory()
+
+    // const fetchTicket = (id) => {
+    //     axiosWithAuth()
+    //         .get(`/tickets/${id}`)
+    //         .then((res) => setTickets(res.data))
+    //         .catch((err) => console.log('err: ', err.response, err.message))
+    // }
+
+    // useEffect(() => {
+    //     fetchTicket(id)
+    // }, [id])
+
+    // if (!tickets) {
+    //     return <div>Loading ticket information...</div>
+    // }
 
     useEffect(() => {
         axiosWithAuth()

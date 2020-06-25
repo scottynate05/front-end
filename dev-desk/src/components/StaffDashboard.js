@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link,Route} from 'react-router-dom'
-import {Button, Container,Row,Col, Card, CardTitle,CardSubtitle} from 'reactstrap'
+import {Button, Container,Row,Col, Card, CardTitle} from 'reactstrap'
 import StaffTicket from './StaffTicket'
 import TicketList from './TicketList'
 
