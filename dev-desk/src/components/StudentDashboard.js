@@ -30,12 +30,12 @@ const StudentDashboard = () => {
 
     useEffect(() => {
         axiosWithAuth()
-            .get('/tickets')
+            .get('/tickets?role=student')
             .then(res => {
                 setTickets(res.data)
                 console.log('res: ', res.data)
             })
-            .catch(err => console.log('err: ', err.message, err.response))
+            .catch(err => console.log('err: inside StudentDashboard.js', err.message, err.response))
     }, [])
 
     return(
@@ -51,7 +51,7 @@ const StudentDashboard = () => {
         
             {tickets.map(tick => (
             <StudentTicket key={tick.id} ticket={tick}/>
-        ))}            
+            ))}
 
 
         <Row style={{paddingRight:'5%'}}>
@@ -77,7 +77,7 @@ const StudentDashboard = () => {
         <PrivateRoute path='/addticket'>
            <AddTicket/>
         </PrivateRoute> 
-        <PrivateRoute path='/editTicket'>
+        <PrivateRoute path='/editticket/:id'>
            <EditTicket/>
         </PrivateRoute>
         <PrivateRoute path='/studentticket'>
