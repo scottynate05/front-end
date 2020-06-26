@@ -37,7 +37,7 @@ const StaffDashboard = () => {
         <>
         <Container className='text-center'>
             <h2>Staff Dashboard</h2>
-            <h6 >Welcome! here you will your tools for viewing, and resolving tickets.</h6>
+            <h6 >Welcome! Here you will your tools for viewing, and resolving tickets.</h6>
         </Container>
 
         <h3>Open Tickets:</h3>

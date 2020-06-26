@@ -7,11 +7,13 @@ const TicketList = (props) => {
         {
             props.ticket.status === 'open' ?
             (
-                <Card>
+                <Col sm='5'>
+                <Card style={{marginTop:'2%'}}>
                 <h4>{props.ticket.subject}</h4>
                 <h6>{props.ticket.messages[0].body}</h6>  
                 <Button color='primary'>Help Student</Button>          
                 </Card>
+                </Col>
             ) : ''
         }
         </>
