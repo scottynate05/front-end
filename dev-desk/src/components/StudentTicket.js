@@ -43,7 +43,9 @@ const StudentTicket = (props) => {
                     <h6>
                         {props.ticket.messages[0].body}
                     </h6>
-                    <Button onClick={() => push(`/editticket/${props.ticket.id}`, tickets)} color='primary'><Link to='/editticket/:id'>Update Ticket</Link></Button>
+                    <Col sm='3'>
+                    <Button onClick={() => push(`/editticket/${props.ticket.id}`, tickets)}  color='primary'><Link style={{color:'white'}} to='/editticket/:id'>Update Ticket</Link></Button>
+                    </Col>
                 </Card>) : ''
             }
         </div>

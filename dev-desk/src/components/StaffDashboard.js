@@ -40,11 +40,11 @@ const StaffDashboard = () => {
             <h6 >Welcome! here you will your tools for viewing, and resolving tickets.</h6>
         </Container>
 
-        <div style={{padding:'5%'}}>
-            <h3>Open Tickets:</h3>
+        <h3>Open Tickets:</h3>
+        <Row style={{paddingLeft:'5%'}}>
             {openTickets.map(tick => (
             <TicketList key={tick.id} ticket={tick}/>))}
-        </div>
+        </Row>
 
         <Card body className='text-center'>
             <CardTitle>Looking to view your assigned tickets?</CardTitle>
