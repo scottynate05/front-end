@@ -1,5 +1,5 @@
 import React,{ useState, useEffect} from 'react'
-import {Link,Route} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {Button, Container,Row,Col, Card, CardTitle} from 'reactstrap'
 import StaffTicket from './StaffTicket'
 import TicketList from './TicketList'
@@ -9,7 +9,7 @@ import PrivateRoute from './PrivateRoute'
 
 
 const StaffDashboard = () => {
-    const [staffTicket,newStaffTicket] = useState([])
+    const [staffTicket,setStaffTicket] = useState([])
     const [tickets, setTickets] = useState([])
     const [openTickets, setOpenTickets] = useState([])
 
@@ -32,6 +32,17 @@ const StaffDashboard = () => {
             })
             .catch(err => console.log('err: ', err.message, err.response))
     }, [])
+
+    useEffect(() => {
+        axiosWithAuth()
+            .get('/tickets')
+            .then(res => {
+                setStaffTicket(res.data)
+                console.log('res: ', res.data)
+            })
+            .catch(err => console.log('err: ', err.message, err.response))
+    }, [])
+
 
     return (
         <>

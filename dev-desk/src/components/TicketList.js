@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card,CardText,Button,Col} from 'reactstrap'
+import {Card,Button,Col} from 'reactstrap'
 
 const TicketList = (props) => {
     return(
