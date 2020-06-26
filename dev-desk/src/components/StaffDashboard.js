@@ -46,7 +46,7 @@ const StaffDashboard = () => {
             <TicketList key={tick.id} ticket={tick}/>))}
         </div>
 
-        <Card body className='text-center'>
+        <Card body  className='text-center'>
             <CardTitle>Looking to view your assigned tickets?</CardTitle>
             <Link to ='/staffticket'>
                 <Button color='primary'>Open Staff Tickets</Button>

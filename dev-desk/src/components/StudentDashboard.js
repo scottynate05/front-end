@@ -55,7 +55,7 @@ const StudentDashboard = () => {
 
 
         <Row style={{paddingRight:'5%'}}>
-        <Col sm='6'>
+        <Col sm='6' md={{offset:'3'}}>
         <Card body className='text-center'>
             <CardTitle>Need to post a ticket to reach out to a helper?</CardTitle>
             <Link to='/addticket'>
