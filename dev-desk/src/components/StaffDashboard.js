@@ -9,7 +9,7 @@ import PrivateRoute from './PrivateRoute'
 
 
 const StaffDashboard = () => {
-
+    const [staffTicket,newStaffTicket] = useState([])
     const [tickets, setTickets] = useState([])
     const [openTickets, setOpenTickets] = useState([])
 
@@ -45,6 +45,10 @@ const StaffDashboard = () => {
             {openTickets.map(tick => (
             <TicketList key={tick.id} ticket={tick}/>))}
         </Row>
+
+        {staffTicket.map(tick => (
+            <StaffTicket key={tick.id} ticket={tick}/>
+            ))}
 
         <Card body className='text-center'>
             <CardTitle>Looking to view your assigned tickets?</CardTitle>
