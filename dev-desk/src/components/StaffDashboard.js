@@ -1,5 +1,5 @@
 import React,{ useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, Route} from 'react-router-dom'
 import {Button, Container,Row,Col, Card, CardTitle} from 'reactstrap'
 import StaffTicket from './StaffTicket'
 import TicketList from './TicketList'
@@ -56,18 +56,21 @@ const StaffDashboard = () => {
             {openTickets.map(tick => (
             <TicketList key={tick.id} ticket={tick}/>))}
         </Row>
-
-        {staffTicket.map(tick => (
+        <h1>Your assigned tickets</h1>
+        <Route>
+            {staffTicket.map(tick => (
             <StaffTicket key={tick.id} ticket={tick}/>
             ))}
+        </Route>
+        
 
-        <Card body className='text-center'>
+        {/* <Card body className='text-center'>
             <CardTitle>Looking to view your assigned tickets?</CardTitle>
             <Link to ='/staffticket'>
                 <Button color='primary'>Open Staff Tickets</Button>
             </Link>           
-        </Card>                 
-
+        </Card>                  */}
+        
         <PrivateRoute path ='/staffticket'>
             <StaffTicket/>
         </PrivateRoute>

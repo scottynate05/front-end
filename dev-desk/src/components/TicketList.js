@@ -22,7 +22,7 @@ const TicketList = (props) => {
             .patch(`/tickets/${props.ticket.id}/assign`, ticket)
             .then(res => {
                 console.log('res: TicketList.js: handleAssign: ', res)
-                history.push('/staffticket')
+                history.push('/staffdashboard')
                 window.location.reload(0)
             })
             .catch(err => console.log('err: TicketList.js: handleAssign: ', err.message, err.response))
