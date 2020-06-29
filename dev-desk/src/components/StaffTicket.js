@@ -42,6 +42,20 @@ const fetchTicket = () => {
                 console.error('err: ', err.message, err.response)
             )
     }
+    
+    const unassignTicket = ev => {
+        ev.preventDefault()
+        axiosWithAuth()
+            .patch(`https://devdesk-queue-2.herokuapp.com/api/tickets/${props.ticket.id}/unassign`, setTicket)
+            .then(res=>{
+                console.log('res', res)
+                history.push('/staffdashboard')
+                window.location.reload(0)
+            })
+            .catch(err => {
+                console.log('err: ', err.message, err.response)
+            })
+    }
 
 
 console.log(props)
@@ -58,7 +72,8 @@ return(
                     {props.ticket.messages[0].body}
                     </h4>
                     <Col sm='3'>
-                    <Button onClick={handleDelete} color='primary'>Update Ticket</Button>
+                    <Button onClick={handleDelete} color='primary'>Mark Ticket Complete</Button>
+                    <Button onClick={unassignTicket} color='primary'>Unassign Ticket</Button>
                     </Col>
                 </Card>
     </>
